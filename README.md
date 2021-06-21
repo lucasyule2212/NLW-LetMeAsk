@@ -13,7 +13,6 @@
   <a href="https://github.com/lucasyule2212">
     <img alt="Developed by Lucas Yule" src="https://img.shields.io/badge/Developer-Lucas_Yule-%3498db?color=3498db&style=for-the-badge">
   </a>
-  <img alt="Project License" src="https://img.shields.io/github/license/lucasyule2212/NLW-LetMeAsk?color=3498db&style=for-the-badge"/>
 </p>
 
 <p align="center">
@@ -21,10 +20,14 @@
  <a href="#information_source-about">About</a> •
  <a href="#arrow_forward-run">Run</a> •
  <a href="#hammer_and_wrench-technologies">Technologies</a> •
- <a href="#boy-author">Author</a> •
- <a href="#balance_scale-license">License</a>
+ <a href="#boy-author">Author</a> 
 </p>
 
+---
+## :information_source: About
+### App developed during Rocketseat's NLW together :rocket::exclamation:
+
+- #### Letmeask :speech_balloon: is an app that aims to help content creators, especially during livestreams, to answer all the main questions of their audience. With a simple and easy-to-learn interface, question management through private rooms allows the streamer to focus on and answer the most relevant questions from their viewers :exclamation::fire:
 ---
 ## :eye_speech_bubble: **Preview**
 
@@ -54,10 +57,6 @@
 
 </div>
   
----
-## :information_source: About
-#### App developed during Rocketseat's NLW together!
-
 ---
 ## :arrow_forward: **Run**
 

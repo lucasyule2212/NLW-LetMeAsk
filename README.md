@@ -4,13 +4,13 @@
   
 </div>
 <p align="center">
-  <img alt="PROJECT NAME" src="./github assets/Capa.png" width="500px"/>
+  <img alt="PROJECT NAME" src=".github/Capa.png" width="500px"/>
 </p>
 
 <p align="center"> 
   <img alt="Repository Size" src="https://img.shields.io/github/repo-size/lucasyule2212/NLW-LetMeAsk?color=3498db&style=for-the-badge">
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/lucasyule2212/NLW-LetMeAsk?color=3498db&style=for-the-badge">
-  <a href="https://github.com/USERNAME">
+  <a href="https://github.com/lucasyule2212">
     <img alt="Developed by Lucas Yule" src="https://img.shields.io/badge/Developer-Lucas_Yule-%3498db?color=3498db&style=for-the-badge">
   </a>
   <img alt="Project License" src="https://img.shields.io/github/license/lucasyule2212/NLW-LetMeAsk?color=3498db&style=for-the-badge"/>
@@ -34,22 +34,22 @@
   
 ## |Admin View|
   <div>
-    <kbd><img width="465px" src="./github assets/admin/Página inicial.png" alt="Desktop1"/></kbd>  
-    <kbd><img width="465px" src="./github assets/admin/Sala React Q&A - Empty state.png" alt="Desktop2"/></kbd> 
+    <kbd><img width="465px" src=".github/admin/Página inicial.png" alt="Desktop1"/></kbd>  
+    <kbd><img width="465px" src=".github/admin/Sala React Q&A - Empty state.png" alt="Desktop2"/></kbd> 
   </div>
     <div>
-    <kbd><img width="465px" src="./github assets/admin/Sala React Q&A - Excluir pergunta-1.png" alt="Desktop3"/></kbd>  
-    <kbd><img width="465px" src="./github assets/admin/Sala React Q&A - Excluir pergunta.png" alt="Desktop4"/></kbd> 
+    <kbd><img width="465px" src=".github/admin/Sala React Q&A - Excluir pergunta-1.png" alt="Desktop3"/></kbd>  
+    <kbd><img width="465px" src=".github/admin/Sala React Q&A - Excluir pergunta.png" alt="Desktop4"/></kbd> 
   </div>
    <div>
-    <kbd><img width="465px" src="./github assets/admin/Sala React Q&A - Pergunta em destaque.png" alt="Desktop5"/></kbd>  
-    <kbd><img width="465px" src="./github assets/admin/Sala React Q&A - Pergunta respondida.png" alt="Desktop6"/></kbd> 
+    <kbd><img width="465px" src=".github/admin/Sala React Q&A - Pergunta em destaque.png" alt="Desktop5"/></kbd>  
+    <kbd><img width="465px" src=".github/admin/Sala React Q&A - Pergunta respondida.png" alt="Desktop6"/></kbd> 
   </div>
 
   ## |User View|
   <div>
-    <kbd><img width="465px" src="./github assets/users/Página inicial.png" alt="Desktop"/></kbd>  
-    <kbd><img width="465px" src="./github assets/users/Sala React Q&A - Perguntas.png" alt="Desktop"/></kbd> 
+    <kbd><img width="465px" src=".github/users/Página inicial.png" alt="Desktop"/></kbd>  
+    <kbd><img width="465px" src=".github/users/Sala React Q&A - Perguntas.png" alt="Desktop"/></kbd> 
   </div>
 
 </div>

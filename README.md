@@ -96,10 +96,6 @@ Developed with ❤️ by Lucas Yule 👋🏽 Contact me!
 </div>
 
 ---
-## :balance_scale: **License**
-
 <div align="center">
-
-Copyright © 2021 [Lucas Yule](https://github.com/lucasyule2212).<br />
-
+  <h1>#TOGETHER:rocket::robot:</h1>
 </div>

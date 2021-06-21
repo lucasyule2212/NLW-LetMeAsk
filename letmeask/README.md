@@ -1,46 +1,46 @@
-# Getting Started with Create React App
+# Diário de código-NLW ReactJS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Diário de código da trilha de ReactJS do evento NLW, promovido pela Rocketseat!
 
-## Available Scripts
+ - Tecnologias a serem usadas:	
+	 - ReactJS
+	 - Typescript
+	 - Google Firebase
 
-In the project directory, you can run:
+# Dia1 : 
 
-### `yarn start`
+ - Iniciando o projeto entendendo o **fluxo de um SPA** através de FlowCharts:
+			 - [FlowChart SPA](https://whimsical.com/fluxo-spa-single-page-app-EiEQvGFrXsRczjjKJdYEPV)
+			 - SPA => Single-Page-Application
+			 - Front-end apenas responsável por pedir dados ao Back, estilizar e passar para o usuário.
+			 - Back-end apenas responsável por enviar os DADOS necessários para o Front, muito mais leve que enviar um HTML já construído!	 
+			 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ - **Iniciando o APP**:
+		 - Criando o projeto =>`yarn create react-app letmeask --template typescript`.
+		 - Limpei as pastas iniciais para tirar arquivos que nao interessam nesse primeiro momento.
+		 - Criei a pasta **components**, para armazenar os React Components.
+		 - -----
+		 - No **Firebase**:
+		- Criei o serviço de Authentication(Google Auth) e Realtime Database.
+		- Copiei a configuraçao do SDK para colar no arquivo de config no projeto.
+		- -----
+		 - Instalei o SDK do Firebase com `yarn add firebase`. 
+		 - Criei a pasta ***services***, para armazenar configuraçoes de serviços externos(APIs,Firebase).
+		 - Criei o arquivo ***.env.local*** para setar as variáveis de ambiente(proteger infos importantes do código, como algumas keys do SDK do firebase. 
+		 - **OBS**: No create react-app as variáveis de ambiente devem ser iniciadas com *REACT_APP*.
+		 
+ - **React** (Conceitos):
+		 - ***Components***: Pedaços isolados de código (Funçoes),  que retornam HTML descrito em JSX. 
+		 - ***Props***: Informaçoes que podemos passar para componentes, para que estes possam alterar seu funcionamento.
+		 - ***States***: Sao informaçoes mantidas por um React component! Infos que **podem ser alteradas** pelo uso do usuário na aplicaçao.
+		 
+ - **Google Firebase**:
+		 - BaaS (Back-end as a Service).
+		 - Fornece uma estrutura de Back-end já pronta para uso.
+		 - Utilizaremos: Authentication, Banco de Dados (SGBD).		 
+		 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+ 

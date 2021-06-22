@@ -71,8 +71,9 @@ The following tools is used to build this project:
 
 |:globe_with_meridians: Web|:file_cabinet: Server|
 |:---:|:---:|
-|ReactJS|Firebase|
-|TypeScript|
+|ReactJS|Firebase-Authentication|
+|TypeScript|Firebase-Realtime Database|
+|SASS|  
 
 </div>
 

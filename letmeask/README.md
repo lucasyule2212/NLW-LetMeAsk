@@ -57,6 +57,35 @@ Diário de código da trilha de ReactJS do evento NLW, promovido pela Rocketseat
  - Criação do componente **Button** (Reutilizável em várias partes do código).
  	- Ao criar o ***btn***, importei a tipagem ***ButtonHTMLAttributes***, que permite acessar/referenciar em todos os possíveis atributos de um componente button.
  - Criação do componente **NewRoom**, uma Page, reutilizando o template da Page **Home**.
+
+  - **ROTEAMENTO**:
+		- Install do React-router-dom com `yarn add react-router-dom`.
+		- Permite criar links entre cada Page do App, utilizando componentes React.
+		- Dessa forma mantemos o conceito de SPA, sem dar refresh na página quando trocamos de Page.
+		- Instalei as tipagens com `yarn add @types/react-router-dom -D`, como dependencia de Desenvolvimento.
+		- Criei as rotas para as Pages **Home** e **NewRoom** especificando o *path* de cada uma.
+		- Utilizei o React **Hook** ***useHistory***, para linkar a Page **Home** à **NewRoom** 
+		- **OBS**: O ***useHistory***, permite que o App tenha acesso e controle sobre o histórico de navegaçao do App, logo, ao utilizar esse Hook para linkar Pages, além do link, esta Page estará disponível para usar os comandos do navegador de voltar/suceder entre Pages.
+		- Utilizei o componente ***Link*** para linkar a Page **NewRoom** à **Home** (Para voltar à Page **Home**).
+ - **AUTENTICAÇAO**:
+	- No **Home**, importei os métodos do Firebase já criados e implementei a funçao ***handleCreateRoom*** (*obs:essa funçao será refatorada mais a frente!*) para fazer a autenticaçao do usuário antes de passar para a Page de criaçao de sala.
+	- Com a autenticaçao criada, é preciso gerenciar se o usuário está logado em cada Tela que requer essa informaçao.
+	- A funçao de autenticaçao retorna um objeto, assim que esta é concluída, e com ele é possivel gerenciar em cada tela se o usuário está logado. 
+	- Fiz isso com o uso de **ContextAPI**, que permite a troca/persistencia de informaçoes entre componentes React.
+	
+ - **CONTEXT API**:
+	- **Contextos**=>Formas de **compartilhar informaçoes** entre componentes React.
+		- Primeiramente instanciei o *context* com o método ***createContext***, que recebe como parametro o tipo da informaçao.
+		- Em seguida declarei o React Component **<Context.Provider>** de modo que todos os ***children*** dentro dele tem acesso à informaçao que desejo passar.
+		- O **<Context.Provider>** recebe uma propriedade "*value*", é nela que a informaçao é passada.
+		- Para gerenciar a info de autenticaçao, criei um **State** no arquivo App e passei o objeto ***{state,setState}*** para o *context*,dessa forma é possível MODIFICAR e UTILIZAR esse **State** em qualquer lugar que esse *context* esteja sendo usado.
+		- Nos components que desejo receber e utilizar essa informaçao, utilizei o **Hook** ***useContext***, que recebe como parametro o *context* desejado.
+		- Refatorei a funçao que faz a autenticaçao, utilizando o **State** criado.
+		- Alterei o value do *context* para receber o user já logado (No caso de ter logado na página inicial) e a funçao de login.
+ - Para persistir a sessao do usuário, se a tela for resetada(por exemplo), utilizei o **Hook** ***useEffect***, que é um Hook de disparo de funcionalidades sempre que algo mudar (carregamento de tela, mudança de algum state,etc).
+ - Separei a implementaçao do *context* de autenticaçao em um arquivo em separado.
+ - Criei a pasta **Hooks**, para criar um Hook customizado, evitando importaçoes desnecessárias.
+ - Criei o Hook ***useAuth*** que cria o *context* de autenticaçao separadamente (clean code)
   
 
  

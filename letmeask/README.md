@@ -48,14 +48,14 @@ Diário de código da trilha de ReactJS do evento NLW, promovido pela Rocketseat
  - Import da pasta de imagens utilizadas no projeto na pasta ***assets***.
  - Criaçao do componente **Home**, uma Page.  	
  - **SASS**:
-		 -  Install do SASS com `yarn add node-sass@5.0.0`, instalando a versao 5 especificamente.
-		 - Pré-processador CSS.
-		 - Defini estilos globais.
-		 - Defini estilos da ***page de authentication.***
-		 - Defini estilos da ***page create room***
+ 	-  Install do SASS com `yarn add node-sass@5.0.0`, instalando a versao 5 especificamente.
+	- Pré-processador CSS.
+	- Defini estilos globais.
+	- Defini estilos da ***page de authentication.***
+	- Defini estilos da ***page create room***
 	
  - Criação do componente **Button** (Reutilizável em várias partes do código).
-	 -Ao criar o ***btn***, importei a tipagem ***ButtonHTMLAttributes***, que permite acessar/referenciar em todos os possíveis atributos de um componente button.
+ 	- Ao criar o ***btn***, importei a tipagem ***ButtonHTMLAttributes***, que permite acessar/referenciar em todos os possíveis atributos de um componente button.
  - Criação do componente **NewRoom**, uma Page, reutilizando o template da Page **Home**.
   
 

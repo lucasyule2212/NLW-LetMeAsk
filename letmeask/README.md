@@ -85,7 +85,55 @@ Diário de código da trilha de ReactJS do evento NLW, promovido pela Rocketseat
  - Para persistir a sessao do usuário, se a tela for resetada(por exemplo), utilizei o **Hook** ***useEffect***, que é um Hook de disparo de funcionalidades sempre que algo mudar (carregamento de tela, mudança de algum state,etc).
  - Separei a implementaçao do *context* de autenticaçao em um arquivo em separado.
  - Criei a pasta **Hooks**, para criar um Hook customizado, evitando importaçoes desnecessárias.
- - Criei o Hook ***useAuth*** que cria o *context* de autenticaçao separadamente (clean code)
+ - Criei o Hook ***useAuth*** que cria o *context* de autenticaçao separadamente (clean code).
+
+ ---
+ # Dia 3 : 
+
+## Setando Fluxo para  criar **Nova Sala**
+ -  Iniciei criando o **State** **newRoom** dentro do component ***NewRoom***, esse State vai gerenciar a criaçao de novas salas.
+ - No *input* do form, coloquei o *event listener* **onChange**, que é ativado sempre que a mudança no input e passei como parametros uma funçao que passa o valor do *event* para a funçao que vai tratar de criar uma nova sala no **RealtimeDatabase**.
+ - Criei a funçao **handleCreateNewRoom**, que recebe o event passado pelo input
+		 - **OBS**: Usei o ***event.preventDefault()*** para evitar que o formulário recarregue a página.
+		 
+ - **RealtimeDatabase**:
+		 - Utilizei o método ***database.ref*** para definir uma *"collection"* de **rooms** e setei uma variável referenciando essa collection para ser usado posteriormente.
+		 - Com o método ***push***, defini os dados que cada **room** vai receber ao ser criado.
+		 -  Defini um redirect com **history.push** na funçao **handleCreateNewRoom**.
+		 - Isso significa que quando a funçao finalizar e a sala estiver criada, o usuário será redirecionado **automaticamente** para a sala.
+		
+ - Setei o push para a rota  **"/rooms/:id"** e recebi  o "**id**" da sala com pegando a propriedade "**key**" da sala que acabou de ser criada.
+## Setando Fluxo para **entrar em sala existente**
+ - Defini o State **roomCode**, para gerenciar o **id** da room que o usuário quer entrar.
+ - No componente **Home**, defini o event listener **onSubmit** do form para chamar a funçao **handleJoinRoom**.
+ - Criei a funçao **handleJoinRoom** , que vai tratar de redirecionar o usuário para alguma sala dado o **id** da sala.
+	- **OBS**: Usei o ***event.preventDefault()*** para evitar que o formulário recarregue a página.
+ - No *input* do form, coloquei o *event listener* **onChange**, que é ativado sempre que a mudança no input e passei como parametros uma funçao que passa o valor do *event* para a funçao que vai tratar de redirecionar o user para a sala desejada.
+ - **RealtimeDatabase**:
+	- Utilizei o método ***database.ref*** passando a referencia "**/rooms/id**" para buscar o objeto **room** desejado no database. Completando com o método **get**, que vai pegar todos os dados daquela **room**.
+	- Com o método ***push***, defini os dados que cada **room** vai receber ao ser criado.
+	-  Defini um redirect com **history.push** na funçao **handleCreateNewRoom**.
+	- Isso significa que quando a funçao finalizar e a sala estiver criada, o usuário será redirecionado **automaticamente** para a sala.
+	- **NO GERENCIADOR DO FIREBASE:**				 
+	- Setei as regras de autorizaçao no console do firebase (na parte de **regras**).
+	- **Regras de autorizaçao**:
+		 
+|Regras:|*ver todas salas*| *criar sala*|*ver a sala que entrou*|*Editar pergunta*(comandos admin OU criar pergunta)|*ver as perguntas da sala*|
+|--|--|--|--|--|--|--|
+|**Comando**: | rooms.read|.rooms.write|$roomId.read|$roomId.write ou question.write|questions.read|questions.write
+| **Valor**: | **false** | **true** (se autenticado)|**true**|**true**(se autenticado ou se for admin da sala)|**true**|
+ - A autorizaçao de likes é similar as outras, o qualquer usuário pode VER(**read:true**), mas só pode dar/tirar like (**write:true**) se for o "**criador**" do like				
+---
+ - Criei o React component **Room** e setei a rota como **"/rooms/:id"**.
+ - Importei o **Switch**, componente do react-router-dom que nao deixa duas rotas serem chamadas ao mesmo tempo (evita conflito de rotas).
+ - Envolvi as Rotas com o Switch.
+ - Estilizei o component **Room**.
+ - Criei o component **RoomCode** que mostra o código da sala e possui uma funçao no **onClick** do button que copia o código.
+	- Essa funçao é da API da Web, "**navigator.clipboard.writeText**".
+ - Como o **id** da sala está sendo passado como parametro na URL, utilizei o Hook **useParams** do react-router-dom, para pegar o id e passei para o **RoomCode** como props.
+ - Para criar a funcionalidade de mandar uma **Nova Pergunta**, iniciei criando um State e uma *async function*, que vai gerenciar isso(**newQuestion**).
+ - Essa manipulaçao funcionou semelhante ao handle de **criar uma sala** (ver mais acima). 
+ - Modifiquei o comportamento do footer do formulário (se logado, mostra **nome** e **avatar** do user, se nao, **pede para logar**) e estilizei essa parte.
   
 
  

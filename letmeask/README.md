@@ -127,6 +127,15 @@ Diário de código da trilha de ReactJS do evento NLW, promovido pela Rocketseat
  - Para criar a funcionalidade de mandar uma **Nova Pergunta**, iniciei criando um State e uma *async function*, que vai gerenciar isso(**newQuestion**).
  - Essa manipulaçao funcionou semelhante ao handle de **criar uma sala** (ver mais acima). 
  - Modifiquei o comportamento do footer do formulário (se logado, mostra **nome** e **avatar** do user, se nao, **pede para logar**) e estilizei essa parte.
+  - Declarei um hook **useEffect** no component Room para começar a tratar do consumo de perguntas vindas do database.
+ - Dentro do Hook, usei dos métodos do Firebase para pegar o "object" dentro da "collection" de acordo com o ID da rooom.
+	- **OBS**:Foi utilizado o método "**on()**", que funciona como um **listener**, **sempre** que algum dado for alterado/inserido/removido , ele irá executar o bloco de código que vai consumir as questions dentro do database.
+ - **OBS**: No useEffect, dentro do "listener" => **[ ]**, declarei o roomID, dessa forma, o useEffect terá como gatilho a mudança do ID da sala, que significa que pra cada sala que o usuário entrar, o useEffect irá carregar os dados relativos daquela sala.
+ - As questions sao retornadas como Object, o que nao é intertessante para oq queremos. Entao utilizei o método **Object.entries** que quando recebe um Object, retorna um array com outros arrays dentro (Matriz) no formato **["key" , "value"]**.
+ - Declarei o type das **questions**.
+ - Após dar **parse** nas questions vindas do firebase de **Object =>Array**, com o método **map()** (para cada elemento do array executa alguma açao) retornei os dados para a variável que guarda o array de questions.
+ - Declarei um State de questions, que será um Array de questions, e declarei o Type desse array.
+ - Agora, para consumir esses dados em tela, criei mais um State, que vai gerenciar o Title da Room, e para colocar em tela, só chamar esses **States(questions e title)** nos campos necessários do return do React Component Room.
   
 
  

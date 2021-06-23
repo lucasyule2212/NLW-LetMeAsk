@@ -7,17 +7,46 @@ import '../styles/room.scss'
 import { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { database } from '../services/firebase';
+import { useEffect } from 'react';
 
 // import { Container } from './styles';
+
+type FirebaseQuestions=Record<string,{
+  author:{
+    name:string;
+    avatar:string;
+  },
+  content:string;
+  isAnswered:boolean;
+  isHighlighted:boolean;
+}>
+
+type Question={
+  id:string;
+  author:{
+    name:string;
+    avatar:string;
+  },
+  content:string;
+  isAnswered:boolean;
+  isHighlighted:boolean;
+}
 type RoomParams={
   id:string;
 }
 function Room() {
+
+
+
   const {user} = useAuth();
   const params = useParams<RoomParams>();
-  const [newQuestion,setNewQuestion]=useState('')
+  const [newQuestion,setNewQuestion]=useState('');
+  const [questions,setQuestions]=useState<Question[]>([]);
+  const [title,setTitle]=useState('');
 
   const roomID = params.id;
+
+
 
   async function handleSendQuestion(event:FormEvent) {
     event.preventDefault();
@@ -38,9 +67,29 @@ function Room() {
     }
 
     await database.ref(`rooms/${roomID}/questions`).push(question);
-    setNewQuestion('')
+    setNewQuestion('');
 
   }
+
+  useEffect(()=>{
+    const roomRef=database.ref(`rooms/${roomID}`);
+    roomRef.on('value',room=>{
+      const databaseRoom = room.val();
+      const firebasequestions:FirebaseQuestions=databaseRoom.questions??{};
+      const parsedQuestions=Object.entries(firebasequestions).map(([key,value])=>{
+        return{
+          id:key,
+          content:value.content,
+          author:value.author,
+          isHighlighted:value.isHighlighted,
+          isAnswered:value.isAnswered
+        }
+      })
+      setTitle(databaseRoom.title)
+      setQuestions(parsedQuestions);
+      
+    })
+  },[roomID])
 
   return(
    <div id="page-room">
@@ -52,8 +101,8 @@ function Room() {
      </header>
      <main >
       <div className="room-title">
-        <h1>React</h1>
-        <span>4 perguntas</span>
+        <h1>{title}</h1>
+        {questions.length>0&&<span>{questions.length} pergunta(s)</span>}
       </div>
       <form onSubmit={handleSendQuestion}>
         <textarea placeholder="Manda aí tua melhor pergunta!" onChange={(event)=>{setNewQuestion(event.target.value)}} value={newQuestion}/>

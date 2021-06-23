@@ -97,10 +97,10 @@ Diário de código da trilha de ReactJS do evento NLW, promovido pela Rocketseat
 		 - **OBS**: Usei o ***event.preventDefault()*** para evitar que o formulário recarregue a página.
 		 
  - **RealtimeDatabase**:
-		 - Utilizei o método ***database.ref*** para definir uma *"collection"* de **rooms** e setei uma variável referenciando essa collection para ser usado posteriormente.
-		 - Com o método ***push***, defini os dados que cada **room** vai receber ao ser criado.
-		 -  Defini um redirect com **history.push** na funçao **handleCreateNewRoom**.
-		 - Isso significa que quando a funçao finalizar e a sala estiver criada, o usuário será redirecionado **automaticamente** para a sala.
+ 	- Utilizei o método ***database.ref*** para definir uma *"collection"* de **rooms** e setei uma variável referenciando essa collection para ser usado posteriormente.
+	- Com o método ***push***, defini os dados que cada **room** vai receber ao ser criado.
+	-  Defini um redirect com **history.push** na funçao **handleCreateNewRoom**.
+	- Isso significa que quando a funçao finalizar e a sala estiver criada, o usuário será redirecionado **automaticamente** para a sala.
 		
  - Setei o push para a rota  **"/rooms/:id"** e recebi  o "**id**" da sala com pegando a propriedade "**key**" da sala que acabou de ser criada.
 ## Setando Fluxo para **entrar em sala existente**
@@ -115,14 +115,7 @@ Diário de código da trilha de ReactJS do evento NLW, promovido pela Rocketseat
 	-  Defini um redirect com **history.push** na funçao **handleCreateNewRoom**.
 	- Isso significa que quando a funçao finalizar e a sala estiver criada, o usuário será redirecionado **automaticamente** para a sala.
 	- **NO GERENCIADOR DO FIREBASE:**				 
-	- Setei as regras de autorizaçao no console do firebase (na parte de **regras**).
-	- **Regras de autorizaçao**:
-		 
-|Regras:|*ver todas salas*| *criar sala*|*ver a sala que entrou*|*Editar pergunta*(comandos admin OU criar pergunta)|*ver as perguntas da sala*|
-|--|--|--|--|--|--|--|
-|**Comando**: | rooms.read|.rooms.write|$roomId.read|$roomId.write ou question.write|questions.read|questions.write
-| **Valor**: | **false** | **true** (se autenticado)|**true**|**true**(se autenticado ou se for admin da sala)|**true**|
- - A autorizaçao de likes é similar as outras, o qualquer usuário pode VER(**read:true**), mas só pode dar/tirar like (**write:true**) se for o "**criador**" do like				
+		- Setei as regras de autorizaçao no console do firebase (na parte de **regras**).
 ---
  - Criei o React component **Room** e setei a rota como **"/rooms/:id"**.
  - Importei o **Switch**, componente do react-router-dom que nao deixa duas rotas serem chamadas ao mesmo tempo (evita conflito de rotas).

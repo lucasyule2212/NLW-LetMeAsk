@@ -167,4 +167,15 @@ Diário de código da trilha de ReactJS do evento NLW, promovido pela Rocketseat
  - Criei a funçao de encerramento de sala, que recebe a referencia da sala no database e adiciona um campo com a data de encerramento da sala. Após isso o Admin e Users sao redirecionados para a página inicial do App.
  - No **Home** , inclui a verificaçao se a sala possui a data de término, se sim, a sala ficara inacessível e o usuário receberá uma mensagem. 
 
+# Dia 5:
+
+ - Adicionei os botoes de marcar a pergunta como: Respondida ou Destacada, basicamente clonando o button de deletar a pergunta.
+ - Setei a lógica de booleanos de cada botao , **isAnswered** e **isHighlighted** no component **Question**.
+ - A pergunta vai receber estilizaçoes diferentes de acordo com qual botao é clicado, entao para isso, declarei 2 classnames (***answered*** e ***highlighted***) que ao acionar o respectivo botao, adiciona alguma dessas classNames ao elemento.
+ - Adicionei condicionais para o aparecimento dos botoes de Highlight e Answered =>
+	- Esses botoes só irao aparecer se a pergunta estiver com **isAnswered** como ***false***.
+	- Semelhante a esse comportamento, o botao de **like** da visao de user, só deve aparecer se a pergunta estiver com **isAnswered** como ***false***.
+	- Estilizei o ***hover*** dos botoes.
+	- Adicionei funcionalidade de dar **toggle** entre a prop ***isHighlighted***;
+		 
  

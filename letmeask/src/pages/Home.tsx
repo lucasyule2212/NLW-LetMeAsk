@@ -24,7 +24,7 @@ function Home() {
     if (!user) {
       await signInWithGoogle();
     }
-    history.push("/rooms/new_room");
+    history.push("rooms/new_room");
   }
 
   async function handleJoinRoom(event:FormEvent) {

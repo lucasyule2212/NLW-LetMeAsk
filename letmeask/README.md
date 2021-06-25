@@ -137,5 +137,34 @@ Diário de código da trilha de ReactJS do evento NLW, promovido pela Rocketseat
  - Declarei um State de questions, que será um Array de questions, e declarei o Type desse array.
  - Agora, para consumir esses dados em tela, criei mais um State, que vai gerenciar o Title da Room, e para colocar em tela, só chamar esses **States(questions e title)** nos campos necessários do return do React Component Room.
   
+# Dia 4: 
+
+ - Iniciei criando o component **Question** , as questoes que serao renderizadas na tela de **Room**.
+ - Defini o **type** (Tipagem) das questions.
+ - No component **Question**, existe uma div vazia, que vai receber os **controles de perguntas** (Admin e User sao diferentes).
+ - Defini os styles do component **Question**.
+ - No object **Room**,  na parte reservada para o render das perguntas, utilizei o étodo **Map**, pra percorrer o array de questions, e passe como return o object **Question** com o **props** *content* e *author*.
+	- OBS: Passar prop "**key**" em cada question!
+ - Criei o Hook **useRoom**, para deixar o app mais modularizado, dessa forma, todas as açoes relativos a salas, seja ela admin ou nao, ficam em um só lugar. 
+ - Transferi tudo relativo à **Room genérica** para o **useRoom**.
+ - Criei o component **AdminRoom**, que vai renderizar a visao do Admin de cada sala. É basicamente uma cópia do component **Room**, com alguns elementos diferindo.
+	- Um desses elementos é o botao de "**encerrar sala**",  que utilizei o mesmo botao que já havia sido feito como component.
+	- Esse button recebeu a propriedade "**isOutlined**", que faz com que ele mude de estilo a depender se estiver com essa propriedade ou nao!
+ - No component **Room** (Sala visao users), criei o botao de Like da pergunta.
+	- Para isso, passei a construçao do botao dentro das tags da Question, e recebi no component Question como o elemento **children**.
+	- Também tive que definir a **tipagem** do elemento children, no caso importando o type ***ReactNode***, que tipa coisas do tipo JSX.
+ - Estilizei o botao de like.
+ - Criei a funçao que trata dos click de like de cada question.
+	- Essa funçao vai **contabilizar cada clique** e mandar para o obj question.
+	- Usei o método **database.ref** para setar também qual user deu o like, para depois contar.
+	- No Hook que lida com o consumo das questions do database, utilizei "**Object.values(value.likes??{}).length**", para pegar o número de likes de uma determinada question e setei o type da question novamente para aceitar uma nova propriedade de likes.
+	- Criei uma nova propriedade para a question, que sera vista pelo user que está dando os likes, a "**hasLiked**". Dessa forma eu posso alterar o visual quando uma pergunta já tiver recebido o like.
+	- Chequei se o usuário já deu like em uma pergunta com: `Object.values(value.likes??{}).some(like=>like.authorId===user?.id)`.
+	- No Room, renderizei os likes com `{userQuestion.likeCount>0&&<span>{userQuestion.likeCount}</span>}` 
+	- O button de link recebe um **onClick** que trata da funçao de dar like, com o seguinte funcionamento: Se o user der like, ele vai enviar para o database o userId que deu like naquela question e se ele tirar o like, a funçao vai buscar no database o userId que retirou o like e remover ele do likeCount.
+ - Criei o botao de **deletar pergunta** na view de Admin e setei a funçao que vai tratar o delete da pergunta no database.
+ - Ao receber confirmaçao do delete, deletei a pergunta do database com `database.ref(rooms/${roomID}/questions/${questionId}).remove()` 
+ - Criei a funçao de encerramento de sala, que recebe a referencia da sala no database e adiciona um campo com a data de encerramento da sala. Após isso o Admin e Users sao redirecionados para a página inicial do App.
+ - No **Home** , inclui a verificaçao se a sala possui a data de término, se sim, a sala ficara inacessível e o usuário receberá uma mensagem. 
 
  

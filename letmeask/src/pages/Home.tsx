@@ -2,7 +2,8 @@ import React, { FormEvent } from "react";
 import { useHistory } from "react-router";
 import { useAuth } from "../hooks/useAuth";
 import { useState } from "react";
-
+import Modal from 'react-modal'
+import close_room from '../assets/images/close-room.svg'
 import illustrationImg from "../assets/images/illustration.svg";
 import logoImg from "../assets/images/logo.svg";
 import googleIcon from "../assets/images/google-icon.svg";
@@ -13,12 +14,46 @@ import "../styles/auth.scss";
 import { database } from "../services/firebase";
 
 
+const customStyles = {
+  overlay:{
+    backgroundColor: 'rgba(0, 0, 0, 0.75)'
+  },
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    display: 'flex',
+    flexFlow:'column',
+    width:'500px',
+    height:'300px',
+    gap:'24px',
+    backgroundColor: '#fefefe',
+    justifyContent:'center',
+    alignItems:'center',
+  },
+};
+ 
+Modal.setAppElement('#root');
 
 function Home() {
   const { user, signInWithGoogle } = useAuth();
   const [roomCode,setRoomCode] = useState('')
 
   const history = useHistory();
+
+  const [modalIsOpen,setModalIsOpen] = useState(false)
+
+  function openModal() {
+    setModalIsOpen(true);
+  }
+
+  function closeModal() {
+    setModalIsOpen(false);
+  }
+
 
   async function handleCreateRoom() {
     if (!user) {
@@ -32,14 +67,13 @@ function Home() {
     if (roomCode.trim()==='') {
      return;
     }
-
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
     if(!roomRef.exists()){
-      alert('Room does not exists!');
+      openModal();
       return;
     }
     if (roomRef.val().endedAt) {
-      alert('Room already closed.')
+     openModal();
       return;
     }
     history.push(`rooms/${roomCode}`);
@@ -72,6 +106,18 @@ function Home() {
             <Button type="submit">Entre na sala</Button>
           </form>
         </div>
+        <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        >        
+        <img src={close_room} alt="close room"/>
+          <h2>Ops...</h2>
+          <p>Parece que esta sala não está disponível!</p>
+          <div style={{display:'flex', gap:'16px',marginTop:'16px'}}>
+          <Button onClick={closeModal} isMuted={true} >Fechar</Button>
+          </div>          
+        </Modal>
       </main>
     </div>
   );

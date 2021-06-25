@@ -29,8 +29,8 @@ function NewRoom() {
       title:newRoom,
       authorId:user?.id,
     })
-
-    history.push(`${firebaseRoom.key}`)
+   
+    history.push(`admin/${firebaseRoom.key}`)
   }
   return (
     <div id="page-auth">

@@ -184,18 +184,18 @@ Diário de código da trilha de ReactJS do evento NLW, promovido pela Rocketseat
  - [ ]  Theme toggle.
  - [ ] Relevant questions mode.
  - [x] Remove room modal.
-		 - Iniciei instalando um pacote de modal, com `yarn add react-modal` 
-		 - Configurei o ***style inline*** do **modal** e da div de botões.
-		 - Adicionei mais 2 styles para o elemento ***Button***, o **isMuted** e o **isDanger**.
-		 - Setei o botão no modal para chamar a função que encerra a sala.
+	- Iniciei instalando um pacote de modal, com `yarn add react-modal` 
+	- Configurei o ***style inline*** do **modal** e da div de botões.
+	- Adicionei mais 2 styles para o elemento ***Button***, o **isMuted** e o **isDanger**.
+	- Setei o botão no modal para chamar a função que encerra a sala.
  - [x] Ended room modal.
-		 - Com o react-modal, reutilizei o código do ***Remove room modal***, de maneira que quando a função *handleJoinRoom* verifica que a sala não existe/foi encerrada , o modal aparece comunicando o usuário.
+	- Com o react-modal, reutilizei o código do ***Remove room modal***, de maneira que quando a função *handleJoinRoom* verifica que a sala não existe/foi encerrada , o modal aparece comunicando o usuário.
  - [x] "No questions" picture.
-		 - Criei um State para gerenciar a quantidade de perguntas que existem no momento.
-		 - Se menor que 1, então cada visão (User ou Admin) vai ver uma mensagem que não existem perguntas feitas.
-		 - Se maior/igual a um, então as perguntas são exibidas.
-		 - Para verificar quando uma pergunta é inserida, utilizei o Hook **useEffect** com listener para o length do array de perguntas.
+	- Criei um State para gerenciar a quantidade de perguntas que existem no momento.
+	- Se menor que 1, então cada visão (User ou Admin) vai ver uma mensagem que não existem perguntas feitas.
+	- Se maior/igual a um, então as perguntas são exibidas.
+	- Para verificar quando uma pergunta é inserida, utilizei o Hook **useEffect** com listener para o length do array de perguntas.
  - [x] Create room -> Admin route
-		 - Apenas alterei a rota para quando o usuário criar a sala ir direto para a visão de Admin.
+	- Apenas alterei a rota para quando o usuário criar a sala ir direto para a visão de Admin.
 		 
  

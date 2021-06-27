@@ -197,5 +197,13 @@ Diário de código da trilha de ReactJS do evento NLW, promovido pela Rocketseat
 	- Para verificar quando uma pergunta é inserida, utilizei o Hook **useEffect** com listener para o length do array de perguntas.
  - [x] Create room -> Admin route
 	- Apenas alterei a rota para quando o usuário criar a sala ir direto para a visão de Admin.
+
+ - ## **Hosting**:
+ - Inciei instalando o Firebase CLI com `npm install -g firebase-tools` 
+ - Inicializei o projeto com `firebase login`.
+ - Após isso segui o passo a passo do `firebase init`.
+ - Por último fiz o build do projeto com `yarn build`.
+ - E por fim o deploy com `firebase deploy`.
+
 		 
  

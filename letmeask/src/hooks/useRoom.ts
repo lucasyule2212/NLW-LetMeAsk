@@ -8,6 +8,7 @@ type TypeQuestion={
   author:{
     name:string;
     avatar:string;
+    isStar:boolean;
   },
   content:string;
   isAnswered:boolean;
@@ -20,10 +21,12 @@ type FirebaseQuestions=Record<string,{
   author:{
     name:string;
     avatar:string;
+    isStar:boolean;
   },
   content:string;
   isAnswered:boolean;
   isHighlighted:boolean;
+  likeCount:number;
   likes:Record<string,{
     authorId:string ;
   }>;
@@ -39,7 +42,9 @@ function useRoom(roomID:string) {
     const roomRef=database.ref(`rooms/${roomID}`);
      roomRef.on('value',room=>{
       const databaseRoom = room.val();
+      
       const firebasequestions:FirebaseQuestions=databaseRoom.questions??{};
+  
       const parsedQuestions=Object.entries(firebasequestions).map(([key,value])=>{
         return{
           id:key,
@@ -59,6 +64,7 @@ function useRoom(roomID:string) {
       roomRef.off('value');
     }
   },[roomID,user?.id])
+
   return({questions,title});
 }
 export {useRoom}

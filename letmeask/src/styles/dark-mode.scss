@@ -1,0 +1,83 @@
+$primary-text: #fff;
+$secondary-text: #dbdcdd;
+
+body {
+  &.dark-mode {
+    background-color: #29292e !important;
+
+    header{
+      border-bottom:1px solid #835afd!important;
+      .content{
+        >div:last-child{
+          >button{
+            &.room-code{
+              color: $primary-text;
+              background-color: #835afd!important;
+            }
+            &.outlined{
+              background-color: #835afd;
+              color: $primary-text;
+            }
+          }
+        }
+        >button{
+          &.room-code{
+            color: $primary-text;
+            background-color: #835afd!important;
+          }
+        }
+      }
+    }
+    .logo {
+      > path:nth-child(1) {
+        fill: #fff;
+      }
+      > path:nth-child(2) {
+        fill: #fff;
+      }
+      > path:nth-child(3) {
+        fill: #fff;
+      }
+      > path:nth-child(4) {
+        fill: #fff;
+      }
+      > path:nth-child(5) {
+        fill: #fff;
+      }
+    }
+
+    h1 {
+      color: $primary-text !important;
+    }
+
+    .question-list {
+      > div {
+        background-color: #29292e !important;
+        &.question{
+          >p{
+            color: $primary-text;
+          }
+        }
+        &.answered{
+          >p{
+            color: #29292e;
+          }
+          background-color: #dbdcdd!important;
+        }
+        &.highlighted{
+          border:1px solid #835afd!important;
+          background-color: #835afd13!important;
+          footer .user-info span{
+            color:#737380!important;
+          }
+        }
+
+
+      }
+    }
+    .noQuestionDiv{
+      color: $primary-text;
+    }
+  }
+
+}

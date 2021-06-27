@@ -178,11 +178,11 @@ Diário de código da trilha de ReactJS do evento NLW, promovido pela Rocketseat
 	- Estilizei o ***hover*** dos botoes.
 	- Adicionei funcionalidade de dar **toggle** entre a prop ***isHighlighted***;
 
-	## Implementações Extra:
-
- - [ ] Responsive.
- - [ ]  Theme toggle.
- - [ ] Relevant questions mode.
+## Implementações Extra:
+ - [x]  Theme toggle.
+ - [x] Room Relevant question.
+		 - Funcionalidade que observa os likes de todas as perguntas da sala.
+		 - Quando uma pergunta chega num limite predefinido, essa pergunta é tida como relevante e a sala recebe uma mensagem. 
  - [x] Remove room modal.
 		 - Iniciei instalando um pacote de modal, com `yarn add react-modal` 
 		 - Configurei o ***style inline*** do **modal** e da div de botões.

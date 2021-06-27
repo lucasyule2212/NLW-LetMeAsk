@@ -9,6 +9,7 @@ type QuestionProps ={
   author:{
     name:string;
     avatar:string;
+    isStar:boolean;
   }
   children?:ReactNode;
   isAnswered?:boolean;

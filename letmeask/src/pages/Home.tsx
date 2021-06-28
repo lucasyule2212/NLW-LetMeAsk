@@ -12,6 +12,7 @@ import { Button } from "../components/Button";
 
 import "../styles/auth.scss";
 import { database } from "../services/firebase";
+import { useEffect } from "react";
 
 
 const customStyles = {
@@ -39,6 +40,18 @@ const customStyles = {
 Modal.setAppElement('#root');
 
 function Home() {
+
+  useEffect(()=>{
+    console.log(document.body.classList);
+    
+    if (document.body.classList.contains('dark-mode')) {
+      console.log(document.body.classList);
+      
+      document.body.classList.remove('dark-mode')
+    }
+  },[])
+
+
   const { user, signInWithGoogle } = useAuth();
   const [roomCode,setRoomCode] = useState('')
 

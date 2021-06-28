@@ -11,6 +11,7 @@ import { AuthContextProvider } from "./contexts/AuthContext";
 import "./styles/global.scss";
 import './styles/dark-mode.scss';
 
+
 function App() {
 
   
@@ -19,10 +20,9 @@ function App() {
       <AuthContextProvider>
         <Switch>
         <Route path="/" exact component={Home} />   
-        <Route path="/rooms/new_room" component={NewRoom} />
-        <Route path="/rooms/admin/:id" component={AdminRoom}></Route>
+        <Route path="/rooms/new_room" component={NewRoom} /> 
+        <Route path="/rooms/admin/:id" component={AdminRoom}/> 
         <Route path="/rooms/:id" exact component={Room}/>      
-        
         </Switch>
       </AuthContextProvider>
     </BrowserRouter>

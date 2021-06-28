@@ -12,8 +12,20 @@ import { Button } from "../components/Button";
 
 import '../styles/auth.scss'
 import { useAuth } from "../hooks/useAuth";
+import { useEffect } from "react";
 
 function NewRoom() {
+
+  useEffect(()=>{
+    console.log(document.body.classList);
+    
+    if (document.body.classList.contains('dark-mode')) {
+      console.log(document.body.classList);
+      
+      document.body.classList.remove('dark-mode')
+    }
+  },[])
+
   const {user} = useAuth();
   const[newRoom,setNewRoom]=useState('');
   const history = useHistory()

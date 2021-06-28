@@ -5,6 +5,7 @@ import empty_question from "../assets/images/empty-questions.svg";
 import close_room from '../assets/images/close-room.svg'
 import { useHistory, useParams } from "react-router-dom";
 import "../styles/room.scss";
+import '../hooks/useAuth'
 import { Question } from "../components/Question";
 import { ThemeChanger } from "../components/ThemeChanger";
 import { useRoom } from "../hooks/useRoom";
@@ -12,11 +13,6 @@ import { database } from "../services/firebase";
 import { useState } from "react";
 import { useEffect } from "react";
 import Modal from 'react-modal'
-
-
-
-// import { Container } from './styles';
-
 
 type RoomParams = {
   id: string;
@@ -47,6 +43,7 @@ const customStyles = {
 Modal.setAppElement('#root')
 
 function AdminRoom() {
+
   const history = useHistory();
   const params = useParams<RoomParams>();
   const roomID = params.id;
@@ -54,6 +51,8 @@ function AdminRoom() {
   const [modalIsOpenRoom,setModalIsOpenRoom] = useState(false)
   const [modalIsOpenQuestion,setModalIsOpenQuestion] = useState(false)
 
+ 
+  
   function openModalRoom() {
     setModalIsOpenRoom(true);
   }
@@ -70,6 +69,7 @@ function AdminRoom() {
   }
 ////////
   const { questions, title } = useRoom(roomID);
+  
 
   async function handleEndRoom() {
     await database.ref(`rooms/${roomID}`).update({
@@ -101,6 +101,7 @@ function AdminRoom() {
       isHighlighted: true,
     });
   }
+
 ////////
   useEffect(()=>{
     setQuestionsLength(questions.length)
@@ -303,5 +304,7 @@ function AdminRoom() {
       </main>
     </div>
   );
+
+
 }
 export { AdminRoom };

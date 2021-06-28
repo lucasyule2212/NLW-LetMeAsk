@@ -46,9 +46,7 @@ body {
       }
     }
 
-    h1 {
-      color: $primary-text !important;
-    }
+   
 
     .question-list {
       > div {
@@ -77,6 +75,22 @@ body {
     }
     .noQuestionDiv{
       color: $primary-text;
+    }
+    main{
+      >div.room-title{
+        >h1 {
+          color: $primary-text !important;
+        }
+      }
+      >form{
+        >div.form-footer{
+          .user-info{
+            span{
+              color: $primary-text!important;
+            }
+          }
+        }
+      }
     }
   }
 

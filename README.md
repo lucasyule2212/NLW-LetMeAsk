@@ -25,8 +25,6 @@
 
 ---
 ## :information_source: About
-### App developed during Rocketseat's NLW together :rocket::exclamation:
-
 - #### Letmeask :speech_balloon: is an app that aims to help content creators, especially during livestreams, to answer all the main questions of their audience. With a simple and easy-to-learn interface, question management through private rooms allows the streamer to focus on and answer the most relevant questions from their viewers :exclamation::fire:
 - Acesse [LetMeAsk](https://letmeask-906c5.web.app/)
 ---
